@@ -15,7 +15,7 @@ public class IOFile {
             String line=br.readLine();
             while ((line= br.readLine())!=null){
                 String[] hihi=line.split(",");
-                computers.add(new Computer(hihi[0],hihi[1],hihi[2],hihi[3],Integer.parseInt(hihi[4])));
+                computers.add(new Computer(hihi[0],hihi[1],hihi[2],hihi[3],Integer.parseInt(hihi[4]),hihi[5]));
             }
             br.close(); fr.close();
 
@@ -29,10 +29,10 @@ public class IOFile {
         try {
             FileWriter fw = new FileWriter(filePath);
             BufferedWriter bw=new BufferedWriter(fw);
-            bw.write("Production"+","+"Name"+","+"Code"+","+"Date"+"Price"+"\n");
+            bw.write("Production"+","+"Name"+","+"Code"+","+"Date"+"Price"+"Color"+"\n");
             for (Computer computer:computers){
                 bw.write(computer.getProduction()+","+computer.getName()+","+computer.getCode()+","+computer.getDate()
-                +","+computer.getPrice()+"\n");
+                +","+computer.getPrice()+","+computer.getColor()+"\n");
             }
             bw.close(); fw.close();
         }catch (IOException e){

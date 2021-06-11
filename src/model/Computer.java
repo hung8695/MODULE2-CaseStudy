@@ -6,15 +6,19 @@ public class Computer {
     private String code;
     private String date;
     private int price;
+    private String color;
 
-    public Computer(){}
 
-    public Computer(String production, String name, String code, String date, int price) {
+    public Computer() {
+    }
+
+    public Computer(String production, String name, String code, String date, int price, String color) {
         this.production = production;
         this.name = name;
         this.code = code;
         this.date = date;
         this.price = price;
+        this.color = color;
     }
 
     public String getProduction() {
@@ -57,6 +61,14 @@ public class Computer {
         this.price = price;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     @Override
     public String toString() {
         return "Computer{" +
@@ -65,6 +77,7 @@ public class Computer {
                 ", Code: " + code +
                 ", Date: " + date +
                 ", Price: " + price +
+                ", Color: " + color +
                 " }";
     }
 }
