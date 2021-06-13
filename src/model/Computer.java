@@ -10,19 +10,29 @@ public class Computer {
     private int ram;
     private String hardDisk;
     private String color;
+    private int amount;
 
     public Computer() {
         mId++;
     }
 
-    public Computer(String product, String name, String chip, int ram, String hardDisk, String color) {
+    public Computer(String product, String name, String chip, int ram, String hardDisk, String color, int amount) {
         this.product = product;
         this.name = name;
         this.chip = chip;
         this.ram = ram;
         this.hardDisk = hardDisk;
         this.color = color;
+        this.amount=amount;
         mId++;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public String getProduct() {
@@ -85,13 +95,14 @@ public class Computer {
     @Override
     public String toString() {
         return "Computer{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", product='" + product + '\'' +
                 ", name='" + name + '\'' +
                 ", chip='" + chip + '\'' +
                 ", ram=" + ram +
                 ", hardDisk='" + hardDisk + '\'' +
                 ", color='" + color + '\'' +
+                ", amount=" + amount +
                 '}';
     }
 }

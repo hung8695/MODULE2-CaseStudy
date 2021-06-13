@@ -12,9 +12,9 @@ public class IOAccount implements IO<Account>{
     public void write(String path, List<Account> list) throws IOException {
         FileWriter fw=new FileWriter(path);
         BufferedWriter bw=new BufferedWriter(fw);
-        String string="ID,Password,Name";
+        String string="ID,Password,Name+\n";
         for (Account account:list){
-            string+=account.getId()+account.getPassword()+account.getName()+"\n";
+            string+=account.getId()+","+account.getPassword()+","+account.getName()+"\n";
         }
         bw.write(string);
         bw.flush();
