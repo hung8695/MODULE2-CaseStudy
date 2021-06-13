@@ -1,32 +1,36 @@
 package model;
 
 public class Computer {
-    private String production;
+    public static final String NAME="COM";
+    public static int mId;
+    private String id=NAME+mId;
+    private String product;
     private String name;
-    private String code;
-    private String date;
-    private int price;
+    private String chip;
+    private int ram;
+    private String hardDisk;
     private String color;
 
-
     public Computer() {
+        mId++;
     }
 
-    public Computer(String production, String name, String code, String date, int price, String color) {
-        this.production = production;
+    public Computer(String product, String name, String chip, int ram, String hardDisk, String color) {
+        this.product = product;
         this.name = name;
-        this.code = code;
-        this.date = date;
-        this.price = price;
+        this.chip = chip;
+        this.ram = ram;
+        this.hardDisk = hardDisk;
         this.color = color;
+        mId++;
     }
 
-    public String getProduction() {
-        return production;
+    public String getProduct() {
+        return product;
     }
 
-    public void setProduction(String production) {
-        this.production = production;
+    public void setProduct(String product) {
+        this.product = product;
     }
 
     public String getName() {
@@ -37,28 +41,28 @@ public class Computer {
         this.name = name;
     }
 
-    public String getCode() {
-        return code;
+    public String getChip() {
+        return chip;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setChip(String chip) {
+        this.chip = chip;
     }
 
-    public String getDate() {
-        return date;
+    public int getRam() {
+        return ram;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setRam(int ram) {
+        this.ram = ram;
     }
 
-    public int getPrice() {
-        return price;
+    public String getHardDisk() {
+        return hardDisk;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setHardDisk(String hardDisk) {
+        this.hardDisk = hardDisk;
     }
 
     public String getColor() {
@@ -69,15 +73,25 @@ public class Computer {
         this.color = color;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+
     @Override
     public String toString() {
         return "Computer{" +
-                "Production: " + production +
-                ", Name: " + name +
-                ", Code: " + code +
-                ", Date: " + date +
-                ", Price: " + price +
-                ", Color: " + color +
-                " }";
+                "id=" + id +
+                ", product='" + product + '\'' +
+                ", name='" + name + '\'' +
+                ", chip='" + chip + '\'' +
+                ", ram=" + ram +
+                ", hardDisk='" + hardDisk + '\'' +
+                ", color='" + color + '\'' +
+                '}';
     }
 }
