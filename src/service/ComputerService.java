@@ -20,7 +20,7 @@ public class ComputerService implements GeneralService<Computer> {
     }
 
 
-    @Override
+   @Override
     public List<Computer> findAll() {
         return computers;
     }
@@ -42,6 +42,9 @@ public class ComputerService implements GeneralService<Computer> {
             }
         }
         return null;
+    }
+    public List<Computer>find(String proprties){
+
     }
 
     @Override

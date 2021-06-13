@@ -18,7 +18,7 @@ public class IOComputer implements IO<Computer>{
             String str="Id,Hãng sản xuất,Tên,Chip,Ram,Ổ cứng,Màu\n";
             for (Computer computer: computers){
                 str+=computer.getId()+computer.getProduct()+computer.getName()+computer.getChip()+computer.getRam()+
-                     computer.getHardDisk()+computer.getColor();
+                     computer.getHardDisk()+computer.getColor()+"\n";
             }
             bw.write(str);
             bw.flush();
