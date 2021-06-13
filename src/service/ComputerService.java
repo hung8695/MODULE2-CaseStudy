@@ -1,13 +1,13 @@
 package service;
 
-import io.Input;
+import io.Start;
 import model.Computer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ComputerService implements GeneralService<Computer> {
-    List<Computer> computers;
+    public List<Computer> computers;
     private static final ComputerService computerService =new ComputerService();
     private ComputerService(){
         this.computers=new ArrayList<>();
@@ -53,7 +53,7 @@ public class ComputerService implements GeneralService<Computer> {
     public void edit(String id) {
 
         if (findById(id)!=null){
-            Input input=new Input();
+            Start input=new Start();
             Computer newComputer=input.creatComputer();
             findById(id).setProduct(newComputer.getProduct());
             findById(id).setName(newComputer.getName());

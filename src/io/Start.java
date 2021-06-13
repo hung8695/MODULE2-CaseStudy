@@ -4,7 +4,7 @@ import model.Computer;
 
 import java.util.Scanner;
 
-public class Input {
+public class Start {
     Scanner scanner=new Scanner(System.in);
     public Computer creatComputer(){
        Computer computer=new Computer();
@@ -23,4 +23,5 @@ public class Input {
         computer.setColor(scanner.nextLine());
         return computer;
     }
+
 }
