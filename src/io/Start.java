@@ -7,12 +7,8 @@ import model.History;
 import service.AccountService;
 import service.ComputerService;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Start {
 
@@ -30,7 +26,7 @@ public class Start {
     Scanner scanner = new Scanner(System.in);
     List<History> historyList=new ArrayList<>();
     String id;
-        int chose;
+        int choose;
         boolean check = false;
 
       public void menu1() {
@@ -40,13 +36,14 @@ public class Start {
 
               do {
                   start1();
-                  int chose1 = scanner.nextInt();
+                  int choose1 = scanner.nextInt();
                   scanner.nextLine();
-                  switch (chose1) {
+                  switch (choose1) {
                       case 1:
                           boolean checkLogin = logIn();
                           while (!checkLogin) {
-                              System.out.println("Nhập sai");
+                              System.out.println("Nhập sai !");
+                              System.out.println("Nhập lại !");
                               checkLogin = logIn();
                           }
                           System.out.println("Nhập đúng");
@@ -61,23 +58,29 @@ public class Start {
 
               do {
                   menu();
-                  chose = scanner.nextInt();
+                  choose = scanner.nextInt();
                   scanner.nextLine();
-                  switch (chose) {
+                  switch (choose) {
                       case 1:
                           for (Computer computer : computerService.computers) {
                               System.out.println(computer.toString());
                           }
                           ioComputer.write(Start.FILE_COMPUTER, computerService.computers);
+                          System.out.println("Bấm Enter để quay lại Menu");
+                          scanner.nextLine();
                           break;
                       case 2:
                           System.out.println("Nhập thông tin tìm kiếm: ");
                           String infor = scanner.nextLine();
+                          System.out.println("Kết quả tìm kiếm: ");
+                          System.out.println();
                           if (computerService.find(infor) != null) {
                               for (Computer computer : computerService.find(infor)) {
                                   System.out.println(computer.toString());
                               }
-                          }
+
+                          } else
+                              System.out.println("Không tìm thấy thông tin vừa nhập!");
                           break;
                       case 3:
                           System.out.println("Nhập id cần sửa: ");
@@ -138,10 +141,13 @@ public class Start {
                           for (History history: historyList){
                               System.out.println(history.toString());
                           }
+                      case 8:
+                          sort();
+                          break;
                       default:
                           System.exit(0);
                   }
-              } while (chose < 8 && chose > 0);
+              } while (choose < 9 && choose > 0);
 
           } while (true);
 
@@ -156,7 +162,8 @@ public class Start {
         System.out.println("5. Xuất kho ");
         System.out.println("6. Đăng xuất ");
         System.out.println("7. Lịch sử ");
-        System.out.println("8. Kết thúc chương trình");
+        System.out.println("8. Sắp xếp");
+        System.out.println("9. Kết thúc chương trình");
         System.out.println("Nhập lựa chọn");
     }
 
@@ -236,7 +243,26 @@ public class Start {
         }
         return false;
     }
+    public void inputNumber(){
 
+    }
+
+    public void sort(){
+        Collections.sort(computerService.computers, new Comparator<Computer>() {
+            @Override
+            public int compare(Computer o1, Computer o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+    }
+    public void sortByProduction(){
+          Collections.sort(computerService.computers, new Comparator<Computer>() {
+              @Override
+              public int compare(Computer o1, Computer o2) {
+                  return o1.getProduct().compareTo(o2.getProduct());
+              }
+          });
+    }
 
 
 }

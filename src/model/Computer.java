@@ -95,14 +95,14 @@ public class Computer {
     @Override
     public String toString() {
         return "Computer{" +
-                "id='" + id + '\'' +
-                ", product='" + product + '\'' +
-                ", name='" + name + '\'' +
-                ", chip='" + chip + '\'' +
-                ", ram=" + ram +
-                ", hardDisk='" + hardDisk + '\'' +
-                ", color='" + color + '\'' +
-                ", amount=" + amount +
+                "Id: " + id +
+                ", Product='" + product +
+                ", Name='" + name +
+                ", Chip='" + chip +
+                ", Ram=" + ram +
+                ", HardDisk='" + hardDisk +
+                ", Color='" + color +
+                ", Amount=" + amount +
                 '}';
     }
 }
