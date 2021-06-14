@@ -10,8 +10,7 @@ public class AccountService {
     private static final AccountService accountService=new AccountService();
     private AccountService(){
         this.accounts=new ArrayList<>();
-        accounts.add(new Account("hihi","hihihi","Hihi"));
-        accounts.add(new Account("huhu","hihihi","Huhu"));
+
     }
     public static AccountService getInstance(){
         return accountService;
