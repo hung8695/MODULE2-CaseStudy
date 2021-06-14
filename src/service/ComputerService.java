@@ -39,8 +39,7 @@ public class ComputerService implements GeneralService<Computer> {
     public List<Computer>find(String infor){
         List<Computer> computerList=new ArrayList<>();
         for (Computer computer: computers){
-            if (computer.getColor().equals(infor)|| computer.getHardDisk().equals(infor)||
-                    computer.getRam()==Integer.parseInt(infor)
+            if (computer.getColor().equals(infor)|| computer.getHardDisk().equals(infor)
             ||computer.getName().equals(infor)||computer.getChip().equals(infor)|| computer.getProduct().equals(infor)||
             computer.getId().equals(infor)){
                 computerList.add(computer);

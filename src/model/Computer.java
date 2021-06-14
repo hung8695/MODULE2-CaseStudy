@@ -99,7 +99,7 @@ public class Computer {
                 ", Product='" + product +
                 ", Name='" + name +
                 ", Chip='" + chip +
-                ", Ram=" + ram +
+                ", Ram=" + ram +"GB"+
                 ", HardDisk='" + hardDisk +
                 ", Color='" + color +
                 ", Amount=" + amount +

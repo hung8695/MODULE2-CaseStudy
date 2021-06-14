@@ -74,8 +74,9 @@ public class Start {
                           String infor = scanner.nextLine();
                           System.out.println("Kết quả tìm kiếm: ");
                           System.out.println();
+                          List<Computer> computerList=computerService.find(infor);
                           if (computerService.find(infor) != null) {
-                              for (Computer computer : computerService.find(infor)) {
+                              for (Computer computer : computerList) {
                                   System.out.println(computer.toString());
                               }
 
