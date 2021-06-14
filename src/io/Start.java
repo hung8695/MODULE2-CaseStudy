@@ -110,9 +110,10 @@ public class Start {
                               scanner.nextLine();
                               switch (select) {
                                   case 1:
-                                      computerService.add(creatComputer());
+                                     Computer computer=creatComputer();
+                                     computerService.add(computer);
                                       ioComputer.write(FILE_COMPUTER, computerService.computers);
-                                      historyList.add(new History(LocalDateTime.now().toString(),getAccount(id).getName(),"ADD",computerService.findById(id1).toString()));
+                                      historyList.add(new History(LocalDateTime.now().toString(),getAccount(id).getName(),"ADD",computer.toString()));
                                       break;
                                   default:
                                       break;
