@@ -134,7 +134,7 @@ public class Start {
                           historyList.add(new History(LocalDateTime.now().toString(),getAccount(id).getName(),"Export",computerService.findById(id2).toString()));
                           break;
                       case 6:
-
+                         choose=10;
                           break;
                       case 7:
                           ioHistory.write(FILE_HISTORY,historyList);
