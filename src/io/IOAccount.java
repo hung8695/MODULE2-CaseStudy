@@ -12,7 +12,7 @@ public class IOAccount implements IO<Account>{
     public void write(String path, List<Account> list) throws IOException {
         FileWriter fw=new FileWriter(path);
         BufferedWriter bw=new BufferedWriter(fw);
-        String string="ID,Password,Name+\n";
+        String string="ID,Password,Name\n";
         for (Account account:list){
             string+=account.getId()+","+account.getPassword()+","+account.getName()+"\n";
         }
@@ -31,6 +31,8 @@ public class IOAccount implements IO<Account>{
             String [] values=line.split(",");
             accountService.add(new Account(values[0],values[1],values[2]));
         }
+        br.close();
+        fr.close();
       return accountService.accounts;
     }
 }

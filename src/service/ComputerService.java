@@ -1,18 +1,19 @@
 package service;
 
+import io.IOComputer;
 import io.Start;
 import model.Computer;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ComputerService implements GeneralService<Computer> {
     public List<Computer> computers;
+    IOComputer ioComputer=new IOComputer();
     private static final ComputerService computerService =new ComputerService();
     private ComputerService(){
         this.computers=new ArrayList<>();
-        computers.add(new Computer("HP","340sG7","i3",4,"SSD 512GB","black",14));
-        computers.add(new Computer("Lenovo","Ideapad3","i3",8,"SSD 512GB","pink",20));
     }
 
     public static ComputerService getInstance(){

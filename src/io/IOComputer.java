@@ -16,8 +16,8 @@ public class IOComputer implements IO<Computer>{
             BufferedWriter bw=new BufferedWriter(fw);
             String str="Id,Hãng sản xuất,Tên,Chip,Ram,Ổ cứng,Màu,Số lượng\n";
             for (Computer computer: computers){
-                str+=computer.getId()+","+computer.getProduct()+","+computer.getName()+","+computer.getChip()+","
-                        +","+computer.getRam()+","+ computer.getHardDisk()+","+computer.getColor()+"\n";
+                str+=computer.getId()+","+computer.getProduct()+","+computer.getName()+","+computer.getChip()
+                        +","+computer.getRam()+","+ computer.getHardDisk()+","+computer.getColor()+","+computer.getAmount()+"\n";
             }
             bw.write(str);
             bw.flush();
@@ -33,9 +33,11 @@ public class IOComputer implements IO<Computer>{
         String line = br.readLine();
         while ((line= br.readLine())!=null){
             String[] values=line.split(",");
-            computerService.add(new Computer(values[0],values[1],values[2],Integer.parseInt(values[3]),values[4],values[5],
-                    Integer.parseInt(values[6])));
+            computerService.add(new Computer(values[1],values[2],values[3],Integer.parseInt(values[4]),values[5],values[6],
+                    Integer.parseInt(values[7])));
         }
+        br.close();
+        fr.close();
         return computerService.computers;
     }
 }

@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Start {
+    public static final String REGEX_ACCOUNT_ID="^[A-Za-z]{4}[0-9]+$";
+    public static final String REGEX_PASSWORD_ID="^[A-Za-z0-9]{6,}$";
     public static final String FILE_COMPUTER="File\\computer.csv";
     public static final String FILE_ACCOUNT="File\\account.csv";
     AccountService accountService=AccountService.getInstance();
@@ -21,25 +23,38 @@ public class Start {
     Scanner scanner=new Scanner(System.in);
     public void display(){
         int chose;
+        boolean check=false;
         try {
             computerService.computers=ioComputer.read(FILE_COMPUTER);
             accountService.accounts=ioAccount.read(FILE_ACCOUNT);
         } catch (IOException e) {
             e.printStackTrace();
         }
-       do{
-           start1();
-           int chose1=scanner.nextInt();
-           scanner.nextLine();
-           switch (chose1){
-               case 1:
-                   logIn();
-                   break;
-               case 2:
-                   creatAccount();
-                   break;
-           }
-       } while (logIn());
+        do{
+
+            start1();
+            int chose1=scanner.nextInt();
+            scanner.nextLine();
+            switch (chose1){
+                case 1:
+                    if(!logIn()){
+                        System.out.println("Nhập sai");
+                        logIn();
+                    }
+                    else
+                        System.out.println("Nhập đúng");
+                        check=true;
+
+                    break;
+                case 2:
+                    creatAccount();
+                    break;
+            }
+        }
+       while (!check);
+
+
+
 
        do{
            menu();
@@ -49,6 +64,11 @@ public class Start {
                case 1:
                    for (Computer computer : computerService.computers){
                        System.out.println(computer.toString());
+                   }
+                   try {
+                       ioComputer.write(Start.FILE_COMPUTER, computerService.computers);
+                   } catch (IOException e) {
+                       e.printStackTrace();
                    }
                    break;
                case 2:
@@ -145,7 +165,7 @@ public class Start {
         do {
             System.out.println("Nhập id");
             id=scanner.nextLine();
-        } while (!accountService.findById(id));
+        } while (accountService.findById(id));
         newAccount.setId(id);
         System.out.println("Nhập password");
         newAccount.setPassword(scanner.nextLine());
