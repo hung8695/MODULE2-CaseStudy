@@ -96,13 +96,13 @@ public class Computer {
     public String toString() {
         return "Computer{" +
                 "Id: " + id +
-                ", Product='" + product +
-                ", Name='" + name +
-                ", Chip='" + chip +
-                ", Ram=" + ram +"GB"+
-                ", HardDisk='" + hardDisk +
-                ", Color='" + color +
-                ", Amount=" + amount +
+                ", Product: " + product +
+                ", Name: " + name +
+                ", Chip: " + chip +
+                ", Ram: "+ ram +"GB"+
+                ", HardDisk: " + hardDisk +
+                ", Color: " + color +
+                ", Amount: " + amount +
                 '}';
     }
 }
