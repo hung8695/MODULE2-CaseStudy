@@ -15,6 +15,14 @@ public class AccountService {
     public static AccountService getInstance(){
         return accountService;
     }
+    public Account find(String id){
+        for (Account account:accounts){
+            if(account.getId().equals(id)){
+                return account;
+            }
+        }
+        return null;
+    }
 
     public boolean  findById(String id){
         for (Account account:accounts){
@@ -29,8 +37,4 @@ public class AccountService {
         accounts.add(account);
 
     }
-//
-//    public void delete(String id) {
-//
-//    }
 }

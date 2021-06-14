@@ -1,9 +1,10 @@
 package model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class History {
-    private Date date;
+    private String date;
     private String name;
     private String status;
     private String infomation;
@@ -12,18 +13,18 @@ public class History {
 
     }
 
-    public History(Date date, String name, String status, String infomation) {
+    public History(String date, String name, String status, String infomation) {
         this.date = date;
         this.name = name;
         this.status = status;
         this.infomation = infomation;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -49,5 +50,15 @@ public class History {
 
     public void setInfomation(String infomation) {
         this.infomation = infomation;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "Date: " + date +
+                ", Name: " + name +
+                ", Status: " + status +
+                ", Infomation: " + infomation +
+                '}';
     }
 }
